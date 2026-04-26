@@ -1,0 +1,227 @@
+/* ============================================================
+   GLOBAL STYLES — Design System & CSS Variables
+   ============================================================ */
+
+/* --- CSS Custom Properties (Light Mode) --- */
+:root,
+[data-theme="light"] {
+  --bg-primary: #f5f0eb;
+  --bg-secondary: #ece6df;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafafa;
+  --bg-navbar: rgba(245, 240, 235, 0.85);
+  
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-tertiary: #888888;
+  --text-on-accent: #ffffff;
+  
+  --accent: #4a6741;
+  --accent-hover: #3d5636;
+  --accent-light: rgba(74, 103, 65, 0.1);
+  
+  --subtitle-color: #8b7e6a;
+  
+  --border-color: #e0dbd5;
+  --border-light: #eee9e3;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.1);
+  
+  --chatbot-bg: #ffffff;
+  --chatbot-user-bg: #4a6741;
+  --chatbot-user-text: #ffffff;
+  --chatbot-bot-bg: #f0ece7;
+  --chatbot-bot-text: #1a1a1a;
+}
+
+/* --- Dark Mode --- */
+[data-theme="dark"] {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-card: #1e1e35;
+  --bg-card-hover: #252545;
+  --bg-navbar: rgba(15, 15, 26, 0.9);
+  
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a0b8;
+  --text-tertiary: #707088;
+  --text-on-accent: #ffffff;
+  
+  --accent: #6b9960;
+  --accent-hover: #7db36e;
+  --accent-light: rgba(107, 153, 96, 0.15);
+  
+  --subtitle-color: #a89880;
+  
+  --border-color: #2d2d4a;
+  --border-light: #252542;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.4);
+  
+  --chatbot-bg: #1e1e35;
+  --chatbot-user-bg: #6b9960;
+  --chatbot-user-text: #ffffff;
+  --chatbot-bot-bg: #252545;
+  --chatbot-bot-text: #e8e8f0;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+input, textarea {
+  font-family: inherit;
+  outline: none;
+  border: none;
+}
+
+/* --- Container --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Section Common --- */
+.section {
+  padding: 100px 0;
+}
+
+.section-subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--subtitle-color);
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin-bottom: 32px;
+  white-space: pre-line;
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--accent);
+  color: var(--text-on-accent);
+}
