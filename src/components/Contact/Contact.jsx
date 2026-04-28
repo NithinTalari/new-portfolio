@@ -1,8 +1,13 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { FiMail } from "react-icons/fi";
 import { contactData } from "../../data/portfolioData";
 import "./Contact.css";
+
+const EMAILJS_SERVICE_ID = "service_eeub5kr";
+const EMAILJS_TEMPLATE_ID = "template_2ergdoh";
+const EMAILJS_PUBLIC_KEY = "tIW1EqLw-461GOC7u";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,17 +25,42 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus(null);
 
-    // Placeholder: Replace with actual form submission logic
-    // Options: EmailJS, Formspree, or your own backend API
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setStatus("success");
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+        throw new Error("Missing EmailJS configuration.");
+      }
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name.trim(),
+          from_email: formData.email.trim(),
+          reply_to: formData.email.trim(),
+          message: formData.message.trim(),
+          to_email: contactData.email,
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
+      );
+
+      setStatus({
+        type: "success",
+        message: "Message sent successfully! I'll get back to you soon.",
+      });
       setFormData({ name: "", email: "", message: "" });
       setTimeout(() => setStatus(null), 5000);
     } catch (error) {
-      setStatus("error");
+      setStatus({
+        type: "error",
+        message:
+          error?.message === "Missing EmailJS configuration."
+            ? "Email service is not configured yet. Please check the EmailJS setup."
+            : "Something went wrong. Please try again or email me directly.",
+      });
       setTimeout(() => setStatus(null), 5000);
     } finally {
       setLoading(false);
@@ -93,6 +123,7 @@ const Contact = () => {
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
+                autoComplete="name"
                 required
               />
             </div>
@@ -103,9 +134,10 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="your@email.com"
+                placeholder="talarinithin12@gmail.com"
                 value={formData.email}
                 onChange={handleChange}
+                autoComplete="email"
                 required
               />
             </div>
@@ -118,6 +150,7 @@ const Contact = () => {
                 placeholder="Tell me about your project..."
                 value={formData.message}
                 onChange={handleChange}
+                rows="6"
                 required
               />
             </div>
@@ -131,15 +164,11 @@ const Contact = () => {
               {loading ? "Sending..." : "Send Message"}
             </button>
 
-            {status === "success" && (
-              <div className="form-status success">
-                ✓ Message sent successfully! I'll get back to you soon.
-              </div>
+            {status?.type === "success" && (
+              <div className="form-status success">{status.message}</div>
             )}
-            {status === "error" && (
-              <div className="form-status error">
-                ✕ Something went wrong. Please try again or email directly.
-              </div>
+            {status?.type === "error" && (
+              <div className="form-status error">{status.message}</div>
             )}
           </motion.form>
         </div>
