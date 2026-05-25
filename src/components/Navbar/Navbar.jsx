@@ -28,35 +28,36 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`} id="navbar">
       <div className="navbar-inner">
-        <a
+        <button
+          type="button"
           className="navbar-logo"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           {personalInfo.logo}
-        </a>
+        </button>
 
         <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
-          <a className="navbar-link" onClick={() => handleNavClick("about")}>
+          <button type="button" className="navbar-link" onClick={() => handleNavClick("about")}>
             About
-          </a>
-          <a className="navbar-link" onClick={() => handleNavClick("education")}>
+          </button>
+          <button type="button" className="navbar-link" onClick={() => handleNavClick("education")}>
             Education
-          </a>
-          <a className="navbar-link" onClick={() => handleNavClick("experience")}>
+          </button>
+          <button type="button" className="navbar-link" onClick={() => handleNavClick("experience")}>
             Experience
-          </a>
-          <a className="navbar-link" onClick={() => handleNavClick("projects")}>
+          </button>
+          <button type="button" className="navbar-link" onClick={() => handleNavClick("projects")}>
             Projects
-          </a>
-          <a className="navbar-link" onClick={() => handleNavClick("achievements")}>
+          </button>
+          <button type="button" className="navbar-link" onClick={() => handleNavClick("achievements")}>
             Achievements
-          </a>
-          <a className="navbar-link" onClick={() => handleNavClick("photography")}>
+          </button>
+          <button type="button" className="navbar-link" onClick={() => handleNavClick("photography")}>
             Interests
-          </a>
-          <a className="navbar-link" onClick={() => handleNavClick("contact")}>
+          </button>
+          <button type="button" className="navbar-link" onClick={() => handleNavClick("contact")}>
             Contact
-          </a>
+          </button>
         </div>
 
         <div className="navbar-actions">

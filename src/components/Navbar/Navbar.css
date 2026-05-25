@@ -30,6 +30,8 @@
 }
 
 .navbar-logo {
+  background: none;
+  border: none;
   font-family: "Playfair Display", serif;
   font-size: 1.4rem;
   font-weight: 700;
@@ -49,12 +51,15 @@
 }
 
 .navbar-link {
+  background: none;
+  border: none;
   font-size: 0.95rem;
   font-weight: 400;
   color: var(--text-secondary);
   position: relative;
   padding: 4px 0;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .navbar-link::after {

@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-inner">
           <p className="footer-text">
-            © {currentYear} <span>{personalInfo.logo}</span>. All rights reserved.
+            Copyright {currentYear} <span>{personalInfo.logo}</span>. All rights reserved.
           </p>
 
           <div className="footer-socials">

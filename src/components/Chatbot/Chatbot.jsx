@@ -29,7 +29,7 @@ const Chatbot = () => {
         setIsTyping(false);
       }, 800);
     }
-  }, [isOpen]);
+  }, [isOpen, messages.length]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -63,7 +63,6 @@ const Chatbot = () => {
     setShowQuickReplies(false);
     setIsTyping(true);
 
-    // Simulate typing delay
     setTimeout(() => {
       const botResponse = findResponse(text);
       setMessages((prev) => [...prev, { type: "bot", text: botResponse }]);
@@ -81,7 +80,6 @@ const Chatbot = () => {
 
   return (
     <>
-      {/* Floating Toggle Button */}
       <motion.button
         className="chatbot-toggle"
         onClick={() => setIsOpen(!isOpen)}
@@ -93,7 +91,6 @@ const Chatbot = () => {
         {isOpen ? <FiX /> : <FiMessageCircle />}
       </motion.button>
 
-      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -103,10 +100,9 @@ const Chatbot = () => {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            {/* Header */}
             <div className="chatbot-header">
               <div className="chatbot-header-info">
-                <div className="chatbot-avatar">🤖</div>
+                <div className="chatbot-avatar" aria-hidden="true">AI</div>
                 <div className="chatbot-header-text">
                   <h4>Nithin's Portfolio Assistant</h4>
                   <p>Ask me anything!</p>
@@ -122,7 +118,6 @@ const Chatbot = () => {
               </button>
             </div>
 
-            {/* Messages */}
             <div className="chatbot-messages">
               {messages.map((msg, index) => (
                 <div key={index} className={`chat-message ${msg.type}`}>
@@ -155,7 +150,6 @@ const Chatbot = () => {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
             <div className="chatbot-input">
               <input
                 ref={inputRef}

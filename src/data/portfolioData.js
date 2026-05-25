@@ -3,6 +3,7 @@
 // ============================================================
 
 import profileImage from "../assets/Photo.jpeg";
+import aiBlogGeneratorImg from "../assets/AIBlogGenerator.png";
 import studentTaskImg from "../assets/StudentTask.png";
 import hackSphereImg from "../assets/HackSphere.png";
 import declamationCompetitionCert from "../assets/certificates/Certificate_DeclamationCompition.png";
@@ -86,8 +87,18 @@ export const projectsData = [
       "Developed a MERN stack task system with role-based access control for efficient workflow tracking. Built RESTful APIs using Node.js and Express.js with JWT authentication for secure user access. Designed a responsive interface with task creation, prioritization, analytics, and dashboards, improving productivity for 50+ users.",
     tags: ["React.js", "Node.js", "Express.js", "MongoDB", "HTML", "CSS"],
     image: studentTaskImg,
-    githubUrl: "#",
-    liveUrl: "#",
+    githubUrl: "https://github.com/NithinTalari/TaskManagement",
+    liveUrl: null,
+  },
+   {
+    title: "AI Blog Generator using CrewAI",
+    year: "2026",
+    description:
+      "Developed an AI-powered blog generator using CrewAI, enabling automated content creation with natural language processing and machine learning techniques.",
+    tags: ["Python", "CrewAI", "Natural Language Processing"],
+    image: aiBlogGeneratorImg,
+    githubUrl: "https://github.com/NithinTalari/ai_blog_generator",
+    liveUrl: null,
   },
   {
     title: "HackSphere - Hackathon Management Platform",
@@ -99,16 +110,7 @@ export const projectsData = [
     githubUrl: "https://github.com/NithinTalari/hacksphere.git",
     liveUrl: "https://nrkshacksphere.netlify.app/",
   },
-  {
-    title: "Snake Game - Desktop Game Application",
-    year: "2024",
-    description:
-      "Developed a Snake game in Python with real-time movement and score tracking system. Implemented collision detection, food generation, and dynamic difficulty using OOP concepts.",
-    tags: ["Python"],
-    image: null,
-    githubUrl: "https://github.com/NithinTalari/Snakegame",
-    liveUrl: null,
-  },
+ 
 ];
 
 export const experienceData = {
@@ -277,8 +279,8 @@ export const contactData = {
 export const socialLinks = {
   github: "https://github.com/NithinTalari",
   linkedin: "https://www.linkedin.com/in/talari-nithin-416569268/",
-  twitter: "https://twitter.com/yourusername",
-  email: "talarinithin12@gmail.com",
+  twitter: null,
+  email: "mailto:talarinithin12@gmail.com",
 };
 
 export const chatbotData = {
@@ -288,7 +290,7 @@ export const chatbotData = {
     skills:
       "I'm proficient in the MERN stack (MongoDB, Express.js, React.js, Node.js), TypeScript, and AI integration with tools like OpenAI API and LangChain.",
     projects:
-      "I've worked on several projects including a Smart Student Productivity System, HackSphere hackathon platform, and a Snake Game. Check out the Projects section for more details!",
+      "I've worked on projects including a Smart Student Productivity System, the HackSphere hackathon platform, and an AI Blog Generator using CrewAI. Check out the Projects section for more details!",
     contact:
       "You can reach out via the contact form on this page, or email directly at talarinithin12@gmail.com. I'd love to hear from you!",
     experience:
